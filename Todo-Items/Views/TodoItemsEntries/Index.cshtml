@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Todo_Items.Models.TodoItemsEntry>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameTodoItem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateStop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusTodoItems)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameTodoItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateStop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusTodoItems)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
